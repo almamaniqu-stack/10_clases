@@ -45,11 +45,11 @@ float calculadora :: multiplicar(){
 }
 
 bool calculadora::dividir(float &resultado){
-    if (!comprobar()){
-        return false;
+    if (comprobar() == false){
+        return "INDEFINIDO";
     }
     resultado = primero / segundo;
-    return true;
+    return resultado;
 }
 
 float calculadora :: comprobar(){
