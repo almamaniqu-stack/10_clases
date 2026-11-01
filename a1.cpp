@@ -25,32 +25,31 @@ void calculadora :: setnumeros(float num1, float num2){
 }
 
 float calculadora :: getprimero(){
-	cout << primero;
+	return primero;
 }
 
 float calculadora :: getsegundo(){
-	cout << segundo;
+	return segundo;
 }
 
 float calculadora :: sumar(){
-	cout << primero + segundo;
+	return primero + segundo;
 }
 
 float calculadora :: restar(){
-	cout << primero - segundo;
+	return primero - segundo;
 }
 
 float calculadora :: multiplicar(){
-	cout << primero * segundo;
+	return primero * segundo;
 }
 
-bool calculadora :: dividir(float &resultado){
-	if(comprobar() == true){
-		resultado = primero / segundo;
-		cout << resultado;
-	}else{
-		cout << "Indefinido." << endl;
-	}
+bool calculadora::dividir(float &resultado){
+    if (!comprobar()){
+        return false;
+    }
+    resultado = primero / segundo;
+    return true;
 }
 
 float calculadora :: comprobar(){
@@ -76,15 +75,16 @@ int main(){
 	cout << "6.\tNumero 2.\n";
 	cout << "7.\tIngresar numeros.\n";
 	cout << "8.\tSalir.\n";
-	cout << "------------------------------------------\n";
-	cout << "ELIGE UNA OPCION: ";
 	do{
+		cout << "\n------------------------------------------\n";
+		cout << "ELIGE UNA OPCION: ";
 		cin >> casio;
+		cout << "\n------------------------------------------\n";
 		switch(casio){
 			case 1: cout << "La suma es: " << h.sumar() << endl; break;
 			case 2: cout << "La resta es: " << h.restar() << endl; break;
 			case 3: cout << "La multiplicacion es: " << h.multiplicar() << endl; break;
-			case 4: cout << "La division es: " << h.dividir(r) << endl; break;
+			case 4: cout << h.dividir(r) << endl; break;
 			case 5: cout << "El numero 1 es: " << h.getprimero() << endl; break;
 			case 6: cout << "El numero 2 es: " << h.getsegundo() << endl; break;
 			case 7: h.setnumeros(x, y); break;
