@@ -6,8 +6,8 @@ class calculadora{
 		float primero, segundo, comprobar();
 	public:
 		calculadora(){
-			primero = 0;
-			segundo = 0;
+			primero = 0.00;
+			segundo = 0.00;
 		};
 		void setnumeros(float a, float b);
 		float getprimero();
@@ -46,18 +46,17 @@ float calculadora :: multiplicar(){
 
 bool calculadora::dividir(float &resultado){
     if (comprobar() == false){
-        return "INDEFINIDO";
+        return false;
     }
     resultado = primero / segundo;
-    return resultado;
+    return true;
 }
 
 float calculadora :: comprobar(){
-	if(segundo == 0){
+	if(segundo == 0.00 && (primero != 0.00 || primero == 0)){
 		return false;
-	}else{
-		return true;
 	}
+	return true;
 }
 
 int main(){
@@ -84,7 +83,13 @@ int main(){
 			case 1: cout << "La suma es: " << h.sumar() << endl; break;
 			case 2: cout << "La resta es: " << h.restar() << endl; break;
 			case 3: cout << "La multiplicacion es: " << h.multiplicar() << endl; break;
-			case 4: cout << h.dividir(r) << endl; break;
+			case 4: 
+					if(h.dividir(r) == true){
+						cout << "El resultado es: " << r << endl;
+					}else{
+						cout << "El resultado es INDEFINIDO." << endl;
+					}
+					break;
 			case 5: cout << "El numero 1 es: " << h.getprimero() << endl; break;
 			case 6: cout << "El numero 2 es: " << h.getsegundo() << endl; break;
 			case 7: h.setnumeros(x, y); break;
