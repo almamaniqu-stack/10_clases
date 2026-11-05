@@ -40,8 +40,8 @@ bool Boligrafo :: escribir(int &unidades){
 }
 
 bool Boligrafo :: recargar(int &unidades){
-	if(unidades  tinta && unidades >= 0 && unidades <= 100){
-		tinta = tinta - unidades;
+	if((unidades + tinta) <= 100){
+		tinta = tinta + unidades;
 		return true;
 	}
 	return false;
