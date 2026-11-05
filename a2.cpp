@@ -27,19 +27,24 @@ string Boligrafo :: getColor(){
 }
 
 bool Boligrafo :: setColor(string &color){
-	
 	color = color;
 	return true;
 }
 
 bool Boligrafo :: escribir(int &unidades){
-	color = "verde";
-	return true;
+	if(unidades < tinta && unidades >= 0 && unidades <= 100){
+		tinta = tinta - unidades;
+		return true;
+	}
+	return false;
 }
 
 bool Boligrafo :: recargar(int &unidades){
-	color = "verde";
-	return true;
+	if(unidades  tinta && unidades >= 0 && unidades <= 100){
+		tinta = tinta - unidades;
+		return true;
+	}
+	return false;
 }
 
 void Boligrafo :: mostrarEstado(){
